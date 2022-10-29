@@ -1,17 +1,16 @@
 package com.baioretto.wishbottle.bean;
 
-import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import lombok.experimental.FieldDefaults;
+
+import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode
 @ToString
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class PostInfo {
-    String username;
-    String message;
-    String avatar;
+public class PostInfo implements Serializable {
+    private String username;
+    private String message;
+    private String avatar;
 }

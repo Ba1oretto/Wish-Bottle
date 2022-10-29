@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.baioretto.wishbottle.mapper.BottleMapper">
+    <cache eviction="LRU" size="512"/>
+
+    <insert id="uploadInfo" flushCache="true" parameterType="PostInfo">
+        insert into wish_bottle.bottle_info(uuid, username, message, avatar) value(unhex(replace(uuid(),'-','')), #{username}, #{message}, #{avatar})
+    </insert>
+
+    <select id="count" useCache="true" resultType="Integer">
+        select count(uuid) from wish_bottle.bottle_info
+    </select>
+
+    <resultMap id="postInfo" type="PostInfo" autoMapping="true"/>
+    <select id="getAll" useCache="true" resultMap="postInfo">
+        select username, message, avatar from wish_bottle.bottle_info order by create_time desc
+    </select>
+</mapper>

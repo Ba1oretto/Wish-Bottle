@@ -35,7 +35,7 @@ public enum State implements BaseEnum {
     // file
     ILLEGAL_FILE_NAME(403, "illegal file name"),
     FILE_NOT_EXISTS(403, "file not exists"),
-    UPLOAD_FAIL(500, "failed to upload file");
+    UPLOAD_FAIL(500, "failed to addPost file");
 
     private final Integer statusCode;
 

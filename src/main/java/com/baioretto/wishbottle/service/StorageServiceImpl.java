@@ -20,7 +20,7 @@ public class StorageServiceImpl implements StorageService {
 
     @Value("${image.localDirPath:/home/storage/}")
     private String localDirPath;
-    @Value("${image.urlPath:https://baioretto.com/}")
+    @Value("${image.urlPath:https://baioretto.com/image}")
     private String urlPath;
 
     @Override
